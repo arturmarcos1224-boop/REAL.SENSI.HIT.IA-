@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>REAL SENSI V22 ULTRA</title>
+
+<style>
+
+/* =========================
+   ROOT
+========================= */
+
+:root{
+
+--gold:#ffd700;
+--gold2:#ff9800;
+
+--red:#ff3b3b;
+--green:#00ff88;
+
+--bg:#050505;
+
+--text:#ffffff;
+}
+
+/* =========================
+   RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:
+radial-gradient(circle at top,#2b1a00,#000000 70%);
+
+font-family:'Segoe UI',sans-serif;
+
+overflow-x:hidden;
+
+color:#fff;
+
+display:flex;
+justify-content:center;
+
+padding:20px;
+}
+
+/* =========================
+   PARTICULAS
+========================= */
+
+.stars{
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+top:0;
+left:0;
+
+overflow:hidden;
+
+z-index:0;
+}
+
+.stars span{
+
+position:absolute;
+
+display:block;
+
+width:5px;
+height:5px;
+
+background:var(--gold);
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 10px var(--gold),
+0 0 20px var(--gold2);
+
+animation:animate 8s linear infinite;
+}
+
+@keyframes animate{
+
+0%{
+
+transform:
+translateY(100vh)
+scale(0);
+
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+
+transform:
+translateY(-10vh)
+scale(1);
+
+opacity:0;
+}
+}
+
+/* =========================
+   ENTRADA
+========================= */
+
+.entry-screen{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+background:
+rgba(0,0,0,.96);
+
+z-index:5;
+}
+
+.logo{
+
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+font-size:55px;
+
+font-weight:900;
+
+background:
+
+linear-gradient(
+135deg,
+#ffd700,
+#ff9800
+);
+
+box-shadow:
+
+0 0 20px #ffd700,
+0 0 50px #ff9800;
+
+animation:pulse 2s infinite alternate;
+}
+
+@keyframes pulse{
+
+100%{
+transform:scale(1.08);
+}
+}
+
+.title{
+
+margin-top:30px;
+
+font-size:55px;
+
+font-weight:900;
+
+background:
+
+linear-gradient(
+180deg,
+#fff7b0,
+#ffd700,
+#ff9800
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+
+0 0 10px #ffd700,
+0 0 25px #ff9800;
+}
+
+.sub{
+
+margin-top:10px;
+
+font-size:14px;
+
+letter-spacing:4px;
+
+color:#ffe082;
+}
+
+.enter-btn{
+
+margin-top:50px;
+
+border:none;
+
+padding:22px 70px;
+
+border-radius:20px;
+
+font-size:28px;
+
+font-weight:900;
+
+cursor:pointer;
+
+color:#fff;
+
+background:
+
+linear-gradient(
+135deg,
+#ffd700,
+#ff9800
+);
+
+box-shadow:
+
+0 0 15px #ffd700,
+0 0 45px #ff9800;
+
+transition:.25s;
+}
+
+.enter-btn:hover{
+
+transform:scale(1.05);
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+position:relative;
+
+z-index:2;
+
+width:100%;
+max-width:430px;
+
+background:
+rgba(10,10,10,.95);
+
+border:
+1px solid rgba(255,215,0,.15);
+
+border-radius:30px;
+
+padding:25px;
+
+display:none;
+
+box-shadow:
+
+0 0 20px rgba(255,215,0,.08),
+0 0 40px rgba(255,174,0,.05);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+text-align:center;
+
+margin-bottom:25px;
+}
+
+.header h1{
+
+font-size:42px;
+
+font-weight:900;
+
+background:
+linear-gradient(
+180deg,
+#fff7b0,
+#ffd700,
+#ff9800
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.header p{
+
+margin-top:8px;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+color:#ffe082;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.field{
+
+margin-bottom:16px;
+}
+
+.field label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-size:12px;
+
+font-weight:700;
+
+color:#ffe082;
+}
+
+input,
+select{
+
+width:100%;
+
+padding:16px;
+
+border-radius:15px;
+
+border:
+
+1px solid rgba(255,215,0,.12);
+
+background:#101010;
+
+color:#fff;
+
+outline:none;
+
+font-size:14px;
+}
+
+input:focus,
+select:focus{
+
+border-color:var(--gold);
+
+box-shadow:
+
+0 0 10px rgba(255,215,0,.2);
+}
+
+/* =========================
+   BOTAO
+========================= */
+
+.btn{
+
+width:100%;
+
+padding:18px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:16px;
+
+font-weight:900;
+
+cursor:pointer;
+
+color:#fff;
+
+background:
+
+linear-gradient(
+135deg,
+#ffd700,
+#ff9800
+);
+
+box-shadow:
+
+0 0 15px #ffd700,
+0 0 35px #ff9800;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader{
+
+display:none;
+
+text-align:center;
+
+margin-top:35px;
+}
+
+.spinner{
+
+width:60px;
+height:60px;
+
+margin:auto;
+
+border-radius:50%;
+
+border:
+5px solid rgba(255,255,255,.08);
+
+border-top:
+5px solid var(--gold);
+
+animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+}
+
+.loader-text{
+
+margin-top:20px;
+
+font-size:15px;
+
+font-weight:800;
+
+color:#ffd700;
+}
+
+/* =========================
+   RESULTADO
+========================= */
+
+.result{
+
+display:none;
+
+margin-top:25px;
+}
+
+/* =========================
+   BOX
+========================= */
+
+.sensi-box{
+
+background:
+rgba(255,215,0,.03);
+
+border:
+1px solid rgba(255,215,0,.12);
+
+border-radius:25px;
+
+padding:22px;
+}
+
+.sensi-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+}
+
+.sensi-title{
+
+font-size:26px;
+
+font-weight:900;
+
+color:#ffd700;
+}
+
+.sensi-badge{
+
+padding:10px 16px;
+
+border-radius:20px;
+
+font-size:12px;
+
+font-weight:900;
+
+background:
+
+linear-gradient(
+135deg,
+#ffd700,
+#ff9800
+);
+}
+
+.calibragem-text{
+
+margin-top:10px;
+
+text-align:center;
+
+font-size:14px;
+
+font-weight:800;
+
+color:#ffe082;
+}
+
+/* =========================
+   BARRAS
+========================= */
+
+.sensi-item{
+
+margin-bottom:24px;
+}
+
+.sensi-info{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:10px;
+}
+
+.sensi-name{
+
+font-size:18px;
+
+font-weight:700;
+}
+
+.sensi-number{
+
+font-size:26px;
+
+font-weight:900;
+
+color:#ffd700;
+
+text-shadow:
+
+0 0 10px #ffd700,
+0 0 20px #ff9800;
+}
+
+.bar-area{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+}
+
+.minus{
+
+font-size:28px;
+
+font-weight:900;
+
+color:var(--red);
+
+text-shadow:
+
+0 0 10px red,
+0 0 20px red;
+}
+
+.plus{
+
+font-size:28px;
+
+font-weight:900;
+
+color:var(--green);
+
+text-shadow:
+
+0 0 10px var(--green),
+0 0 20px var(--green);
+}
+
+.sensi-bar{
+
+width:100%;
+
+height:18px;
+
+background:#181818;
+
+border-radius:20px;
+
+overflow:hidden;
+}
+
+.sensi-fill{
+
+height:100%;
+
+border-radius:20px;
+
+background:
+
+linear-gradient(
+90deg,
+#ffd700,
+#ff9800
+);
+
+box-shadow:
+
+0 0 10px #ffd700,
+0 0 20px #ff9800;
+}
+
+/* =========================
+   FIRE
+========================= */
+
+.fire-box{
+
+margin-top:35px;
+
+padding:30px;
+
+border-radius:25px;
+
+text-align:center;
+
+border:
+1px solid rgba(255,215,0,.15);
+
+background:
+rgba(255,215,0,.03);
+}
+
+.fire-number{
+
+font-size:60px;
+
+font-weight:900;
+
+color:#ffd700;
+
+text-shadow:
+
+0 0 10px #ffd700,
+0 0 25px #ff9800;
+}
+
+.fire-text{
+
+margin-top:10px;
+
+font-size:16px;
+
+letter-spacing:2px;
+
+color:#ffe082;
+}
+
+.dpi-result{
+
+margin-top:20px;
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:900;
+
+color:#ffd700;
+}
+
+</style>
+</head>
+<body>
+
+<div class="stars">
+
+<span style="left:10%;animation-duration:6s;"></span>
+<span style="left:20%;animation-duration:8s;"></span>
+<span style="left:35%;animation-duration:7s;"></span>
+<span style="left:50%;animation-duration:9s;"></span>
+<span style="left:65%;animation-duration:6s;"></span>
+<span style="left:80%;animation-duration:8s;"></span>
+<span style="left:90%;animation-duration:7s;"></span>
+
+</div>
+
+<!-- ENTRADA -->
+
+<div class="entry-screen">
+
+<div class="logo">
+RS
+</div>
+
+<div class="title">
+RealSensi
+</div>
+
+<div class="sub">
+GERADOR DE SENSIBILIDADE PRO
+</div>
+
+<button
+class="enter-btn"
+onclick="abrirPainel()"
+>
+⚡ ENTRAR
+</button>
+
+</div>
+
+<!-- CONTAINER -->
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+REAL SENSI
+</h1>
+
+<p>
+ULTRA V22
+</p>
+
+</div>
+
+<div class="field">
+
+<label>MARCA</label>
+
+<input
+type="text"
+id="marca"
+placeholder="Samsung"
+/>
+
+</div>
+
+<div class="field">
+
+<label>MODELO</label>
+
+<input
+type="text"
+id="modelo"
+placeholder="Galaxy A54"
+/>
+
+</div>
+
+<div class="field">
+
+<label>INFLUENCIADOR</label>
+
+<input
+type="text"
+id="famoso"
+placeholder="CEROL"
+/>
+
+</div>
+
+<div class="field">
+
+<label>MODO DA SENSI</label>
+
+<select id="modo">
+
+<option value="NORMAL">
+🟢 NORMAL
+</option>
+
+<option value="HACKER">
+🔥 HACKER
+</option>
+
+<option value="ESPECIAL">
+⚡ ESPECIAL
+</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>TIPO DE SENSI</label>
+
+<select id="tipo">
+
+<option value="ALTA">
+🚀 ALTA
+</option>
+
+<option value="MEDIA" selected>
+🎯 MÉDIA
+</option>
+
+<option value="BAIXA">
+🛡️ BAIXA
+</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>CALIBRAGEM</label>
+
+<select id="calibragem">
+
+<option value="EQUILIBRADA">
+⚖️ EQUILIBRADA
+</option>
+
+<option value="CALIBRADA">
+🎯 CALIBRADA
+</option>
+
+<option value="PRO">
+🔥 PRO PLAYER
+</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>CONFIGURAÇÃO DPI</label>
+
+<select id="usarDpi" onchange="toggleDPI()">
+
+<option value="OFF">
+❌ SEM DPI
+</option>
+
+<option value="ON">
+🔥 COM DPI
+</option>
+
+</select>
+
+</div>
+
+<div
+class="field"
+id="dpiField"
+style="display:none;"
+>
+
+<label>DPI PERSONALIZADA</label>
+
+<input
+type="number"
+id="dpi"
+placeholder="Digite a DPI"
+/>
+
+</div>
+
+<button
+class="btn"
+onclick="processar()"
+>
+GERAR SENSI
+</button>
+
+<div
+class="loader"
+id="loader"
+>
+
+<div class="spinner"></div>
+
+<div class="loader-text">
+GERANDO SENSIBILIDADE...
+</div>
+
+</div>
+
+<div
+class="result"
+id="result"
+>
+
+<div id="cards"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function abrirPainel(){
+
+document.querySelector(".entry-screen")
+.style.display="none";
+
+document.querySelector(".container")
+.style.display="block";
+}
+
+function toggleDPI(){
+
+const usar=
+document.getElementById("usarDpi").value;
+
+const campo=
+document.getElementById("dpiField");
+
+campo.style.display=
+usar==="ON"
+?"block"
+:"none";
+}
+
+function processar(){
+
+document.getElementById("loader")
+.style.display="block";
+
+document.getElementById("result")
+.style.display="none";
+
+setTimeout(()=>{
+
+document.getElementById("loader")
+.style.display="none";
+
+gerar();
+
+},2500);
+}
+
+function criarBarra(nome,valor){
+
+if(valor>200){
+valor=200;
+}
+
+return`
+
+<div class="sensi-item">
+
+<div class="sensi-info">
+
+<div class="sensi-name">
+${nome}
+</div>
+
+<div class="sensi-number">
+${valor}
+</div>
+
+</div>
+
+<div class="bar-area">
+
+<div class="minus">
+−
+</div>
+
+<div class="sensi-bar">
+
+<div
+class="sensi-fill"
+style="width:${valor}%"
+></div>
+
+</div>
+
+<div class="plus">
++
+</div>
+
+</div>
+
+</div>
+
+`;
+}
+
+function gerar(){
+
+const modo=
+document.getElementById("modo").value;
+
+const tipo=
+document.getElementById("tipo").value;
+
+const calibragem=
+document.getElementById("calibragem").value;
+
+const usarDpi=
+document.getElementById("usarDpi").value;
+
+/* DPI */
+
+let dpi=0;
+
+if(usarDpi==="ON"){
+
+dpi=
+
+parseInt(
+document.getElementById("dpi").value
+)||700;
+
+}else{
+
+dpi=
+
+500+
+
+Math.floor(
+Math.random()*500
+);
+}
+
+/* RANGE */
+
+let min,max;
+
+if(tipo==="ALTA"){
+
+min=150;
+max=200;
+
+}
+
+else if(tipo==="BAIXA"){
+
+min=70;
+max=130;
+
+}
+
+else{
+
+min=110;
+max=170;
+}
+
+/* BOOST */
+
+let boost=0;
+
+/* MODO */
+
+if(modo==="HACKER"){
+boost+=15;
+}
+
+if(modo==="ESPECIAL"){
+boost+=8;
+}
+
+/* CALIBRAGEM */
+
+if(calibragem==="CALIBRADA"){
+boost+=6;
+}
+
+if(calibragem==="PRO"){
+boost+=12;
+}
+
+/* ENGINE */
+
+function randomValor(extra=0){
+
+let valor=
+
+min+
+
+Math.floor(
+Math.random()*
+(max-min)
+);
+
+valor+=boost;
+valor+=extra;
+
+/* DPI */
+
+if(dpi>=700){
+valor+=3;
+}
+
+if(dpi>=900){
+valor+=5;
+}
+
+if(valor>200){
+valor=200;
+}
+
+return valor;
+}
+
+/* SENSIS */
+
+const geral=
+randomValor(5);
+
+const red=
+randomValor(0);
+
+const mira2=
+randomValor(-50);
+
+const mira4=
+randomValor(-30);
+
+const awm=
+randomValor(-20);
+
+const livre=
+randomValor(-10);
+
+const botao=
+
+30+
+
+Math.floor(
+Math.random()*35
+);
+
+/* HTML */
+
+document.getElementById("cards")
+.innerHTML=
+
+`
+
+<div class="sensi-box">
+
+<div class="sensi-top">
+
+<div class="sensi-title">
+GERADOR DE SENSI
+</div>
+
+<div class="sensi-badge">
+⚡ ${modo}
+</div>
+
+</div>
+
+<div class="calibragem-text">
+
+🎯 ${calibragem}
+
+</div>
+
+${criarBarra("Geral",geral)}
+
+${criarBarra("Ponto Vermelho",red)}
+
+${criarBarra("Mira 2X",mira2)}
+
+${criarBarra("Mira 4X",mira4)}
+
+${criarBarra("AWM",awm)}
+
+${criarBarra("Olhadinha",livre)}
+
+${criarBarra("DPI",Math.floor(dpi/5))}
+
+<div class="fire-box">
+
+<div class="fire-number">
+${botao}
+</div>
+
+<div class="fire-text">
+TAMANHO DO BOTÃO
+</div>
+
+</div>
+
+<div class="dpi-result">
+
+${usarDpi==="ON"
+?`DPI DEFINIDA: ${dpi}`
+:`DPI AUTOMÁTICA: ${dpi}`}
+
+</div>
+
+</div>
+
+`;
+
+document.getElementById("result")
+.style.display="block";
+}
+
+</script>
+
+</body>
+  </html>
